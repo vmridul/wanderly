@@ -322,7 +322,7 @@ const Home = () => {
 
           <div className="w-full max-w-[720px] flex flex-col items-center">
             {/* Search & Sort Bar */}
-            <div className="flex flex-col md:flex-row justify-between items-center w-full text-sm gap-4 mb-3">
+            <div className="hidden md:flex flex-col md:flex-row justify-between items-center w-full text-sm gap-4 mb-3">
               {/* Sort */}
               <div className="bg-white py-2 px-4 gap-5 flex items-center rounded-md h-12 md:h-10 shadow-sm w-full md:w-auto justify-between md:justify-start">
                 <span className="text-[#3F2978] font-medium">Sort by:</span>
@@ -362,9 +362,9 @@ const Home = () => {
             </div>
 
             {/* Trip Cards List */}
-            <div className="w-full flex flex-col gap-4">
+            <div className="w-full flex items-center flex-col gap-4">
               {/* Trip 1 */}
-              <div className="text-[#3F2978] grid grid-cols-1 md:grid-cols-5 items-center text-sm bg-white w-full rounded-3xl md:h-20 p-4 md:px-4 md:py-0 border border-[#CFD0D5] shadow-[0px_5px_0px_#EFEFEF,0px_6px_0px_#CFD0D5] hover:shadow-[0px_5px_0px_#EFEFEF,0px_6px_0px_#CFD0D5,0px_7px_6px_#d3d3d3] transition-all ease-in-out gap-3 md:gap-0 cursor-pointer group">
+              <div className="text-[#3F2978] md:py-0 py-2 grid grid-cols-2 grid-rows-3 md:grid md:grid-cols-5 md:grid-rows-1 items-center text-sm bg-white md:max-w-[720px] rounded-3xl h-38 md:h-18 max-w-82 px-4 border border-[#CFD0D5] shadow-[0px_5px_0px_#EFEFEF,0px_6px_0px_#CFD0D5] hover:shadow-[0px_5px_0px_#EFEFEF,0px_6px_0px_#CFD0D5,0px_7px_6px_#d3d3d3] transition-all ease-in-out group">
                 {/* Destination */}
                 <div className="flex items-center gap-2 md:ml-2 col-span-1">
                   <i className="fa-solid fa-location-dot w-4 h-4 text-[#3F2978]"></i>
@@ -401,7 +401,7 @@ const Home = () => {
               </div>
 
               {/* Trip 2 */}
-              <div className="text-[#3F2978] grid grid-cols-1 md:grid-cols-5 items-center text-sm bg-white w-full rounded-3xl md:h-20 p-4 md:px-4 md:py-0 border border-[#CFD0D5] shadow-[0px_5px_0px_#EFEFEF,0px_6px_0px_#CFD0D5] hover:shadow-[0px_5px_0px_#EFEFEF,0px_6px_0px_#CFD0D5,0px_7px_6px_#d3d3d3] transition-all ease-in-out gap-3 md:gap-0 cursor-pointer group">
+              <div className="text-[#3F2978] md:py-0 py-2 grid grid-cols-2 grid-rows-3 md:grid md:grid-cols-5 md:grid-rows-1 items-center text-sm bg-white md:max-w-[720px] rounded-3xl h-38 md:h-18 max-w-82 px-4 border border-[#CFD0D5] shadow-[0px_5px_0px_#EFEFEF,0px_6px_0px_#CFD0D5] hover:shadow-[0px_5px_0px_#EFEFEF,0px_6px_0px_#CFD0D5,0px_7px_6px_#d3d3d3] transition-all ease-in-out group">
                 {/* Destination */}
                 <div className="flex items-center gap-2 md:ml-2 col-span-1">
                   <i className="fa-solid fa-location-dot w-4 h-4 text-[#3F2978]"></i>
