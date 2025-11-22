@@ -1,7 +1,7 @@
 import { toast } from "react-toastify";
 const handleCopy = async (id) => {
 
-    const res = await fetch(`http://localhost:3000/api/trips/find/${id}`, {
+    const res = await fetch(`${import.meta.env.VITE_API_URL}/api/trips/find/${id}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
