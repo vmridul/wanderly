@@ -4,7 +4,7 @@ dotenv.config();
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
-const secretRules = import.meta.env.VITE_PROMPT.replace(/\\n/g, '\n');
+const secretRules = process.env.VITE_PROMPT.replace(/\\n/g, '\n');
 const tripDetails = `
 Generate a day-wise itinerary for this trip:
 Destination: ${trip.destination}

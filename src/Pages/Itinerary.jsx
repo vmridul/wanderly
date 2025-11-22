@@ -16,7 +16,7 @@ const Itinerary = () => {
   const handleFetch = async () => {
     if (!user) return;
 
-    const res = await fetch(`http://localhost:3000/api/trips/find/${id}`, {
+    const res = await fetch(`${VITE_API_URl}/api/trips/find/${id}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

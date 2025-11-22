@@ -41,7 +41,7 @@ const ItineraryDisplay = ({ trip }) => {
         "Are you sure you want to delete this trip?"
       );
       if (!confirmDelete) return;
-      await fetch(`http://localhost:3000/api/trips/${trip.tripId}`, {
+      await fetch(`${import.meta.env.VITE_API_URL}/api/trips/${trip.tripId}`, {
         method: "DELETE",
         headers: { "Content-Type": "application/json" },
       });

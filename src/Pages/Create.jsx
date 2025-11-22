@@ -50,7 +50,7 @@ const Create = () => {
         notes,
         userEmail,
       };
-      const res = await fetch("http://localhost:3000/api/itinerary/generate", {
+      const res = await fetch(`${VITE_API_URl}/api/itinerary/generate`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ trip }),
@@ -69,7 +69,7 @@ const Create = () => {
         ...trip,
         details: data,
       };
-      const newT = await fetch("http://localhost:3000/api/trips", {
+      const newT = await fetch(`${VITE_API_URl}/api/trips`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(tripToSave),
@@ -90,7 +90,7 @@ const Create = () => {
       const user = result.user;
       console.log("User:", user.email);
 
-      await fetch("http://localhost:3000/api/users", {
+      await fetch(`${VITE_API_URl}/api/users`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name: user.displayName, email: user.email }),

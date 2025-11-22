@@ -35,7 +35,7 @@ const Trips = () => {
       );
       if (!confirmDelete) return;
 
-      await fetch(`http://localhost:3000/api/trips/${tripId}`, {
+      await fetch(`${VITE_API_URl}/api/trips/${tripId}`, {
         method: "DELETE",
         headers: { "Content-Type": "application/json" },
       });
@@ -65,9 +65,7 @@ const Trips = () => {
 
     const fetchTrips = async () => {
       try {
-        const res = await fetch(
-          `http://localhost:3000/api/trips/${user.email}`
-        );
+        const res = await fetch(`${VITE_API_URl}/api/trips/${user.email}`);
         const data = await res.json();
         setTrips(Array.isArray(data) ? data : data.trips || []);
       } catch (err) {
