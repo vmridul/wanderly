@@ -1,0 +1,30 @@
+@import "tailwindcss";
+
+@keyframes progress-loading {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+.animate-progress {
+  animation: progress-loading 2s infinite linear;
+}
+
+@font-face {
+  font-family: BriceReg;
+  src: url("/src/assets/fonts/brice-regular.ttf") format("truetype");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: Brice;
+  src: url("/src/assets/fonts/Brice-BoldSemiExpanded.ttf") format("truetype");
+  font-weight: 700;
+}
+
+@theme{
+  --font-bricereg: BriceReg,"sans-serif";
+}
+
+@theme{
+  --font-brice: Brice,"sans-serif";
+}

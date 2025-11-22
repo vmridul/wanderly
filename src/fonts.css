@@ -1,0 +1,11 @@
+@font-face {
+  font-family: "MyFont";
+  src: url("/src/assets/fonts/MyFont-Regular.ttf") format("truetype");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "MyFont";
+  src: url("/src/assets/fonts/MyFont-Bold.ttf") format("truetype");
+  font-weight: 700;
+}
