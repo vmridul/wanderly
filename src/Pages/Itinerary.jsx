@@ -16,12 +16,15 @@ const Itinerary = () => {
   const handleFetch = async () => {
     if (!user) return;
 
-    const res = await fetch(`${VITE_API_URl}/api/trips/find/${id}`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+    const res = await fetch(
+      `${import.meta.env.VITE_API_URL}/api/trips/find/${id}`,
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
     if (res.status === 403 || res.status === 404) navigate("/create");
     const data = await res.json();
     setTrip(data);

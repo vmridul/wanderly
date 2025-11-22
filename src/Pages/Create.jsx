@@ -50,11 +50,14 @@ const Create = () => {
         notes,
         userEmail,
       };
-      const res = await fetch(`${VITE_API_URl}/api/itinerary/generate`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ trip }),
-      });
+      const res = await fetch(
+        `${import.meta.env.VITE_API_URL}/api/itinerary/generate`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ trip }),
+        }
+      );
 
       if (!res.ok) {
         navigate("/create");
@@ -69,7 +72,7 @@ const Create = () => {
         ...trip,
         details: data,
       };
-      const newT = await fetch(`${VITE_API_URl}/api/trips`, {
+      const newT = await fetch(`${import.meta.env.VITE_API_URL}/api/trips`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(tripToSave),
