@@ -21,9 +21,9 @@ const DateRangePicker = ({ setFrom, setTo }) => {
   };
 
   return (
-    <div className="flex flex-row justify-between w-110">
+    <div className="flex flex-col gap-3 md:gap-0 md:flex-row justify-between w-110 md:ml-0 ml-30">
       <div className="flex flex-col gap-2">
-        <div className="flex items-center p-2 gap-2 h-12 pl-5 bg-white rounded-md w-54">
+        <div className="flex items-center p-2 gap-2 h-12 pl-5 bg-white rounded-md w-80 md:w-54">
           <FontAwesomeIcon
             icon={faCalendar}
             className="w-5 h-5 text-[#3F2978]"
@@ -42,7 +42,7 @@ const DateRangePicker = ({ setFrom, setTo }) => {
       </div>
 
       <div className="flex flex-col gap-2">
-        <div className="flex items-center bg-white pl-5 h-12 rounded-md p-2 gap-2 w-54">
+        <div className="flex items-center bg-white pl-5 h-12 rounded-md p-2 gap-2 w-80 md:w-54">
           <FontAwesomeIcon
             icon={faCalendar}
             className="w-5 h-5 text-[#3F2978]"

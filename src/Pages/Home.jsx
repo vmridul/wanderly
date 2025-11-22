@@ -252,7 +252,7 @@ const Home = () => {
                 <i className="fa-solid fa-wand-magic-sparkles mr-2"></i>{" "}
                 AI-Powered Trip Planning
               </div>
-              <h1 className="text-5xl lg:text-6xl font-brice font-heading font-black text-[#3F2978] leading-tight mb-6 tracking-tight">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-brice font-heading font-black text-[#3F2978] leading-tight mb-6 tracking-tight">
                 Plan your next <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3F2978] to-[#8a4fff]">
                   adventure.
@@ -311,7 +311,7 @@ const Home = () => {
       <section className="py-20 bg-aesthetic-dots relative flex flex-col items-center">
         <div className="container mx-auto mt-5 px-6 flex flex-col items-center">
           <div className="text-center mb-12">
-            <h2 className="text-5xl font-brice font-heading font-black text-[#3F2978] mb-4">
+            <h2 className="text-4xl md:text-5xl font-brice font-heading font-black text-[#3F2978] mb-4">
               Your Trips, Organized
             </h2>
             <p className="text-slate-600 max-w-2xl mx-auto font-manrope">
@@ -448,7 +448,7 @@ const Home = () => {
 
         <div className="container mx-auto px-6 relative z-10">
           <div className="text-center mb-16">
-            <h2 className="text-5xl font-brice font-heading font-black text-[#3F2978] mb-4">
+            <h2 className="text-4xl md:text-5xl font-brice font-heading font-black text-[#3F2978] mb-4">
               Why Wanderly?
             </h2>
             <p className="text-slate-600 font-manrope max-w-2xl mx-auto">
@@ -474,7 +474,7 @@ const Home = () => {
                   your budget smartly.
                 </p>
 
-                <div className="mt-auto bg-white/60 backdrop-blur-md rounded-xl p-8 flex flex-col gap-4 shadow-sm border border-white/50 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                <div className="mt-auto bg-white/60 backdrop-blur-md rounded-xl p-8 hidden md:flex flex-col gap-4 shadow-sm border border-white/50 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
                   <div className="bg-slate-200/60 rounded-lg px-4 py-2 flex items-center gap-2 w-fit">
                     <i className="fa-solid fa-ticket text-[#3F2978]"></i>
                     <span className="text-[#3F2978] font-bold text-sm font-body">
@@ -637,7 +637,7 @@ const Home = () => {
                 </p>
               </div>
 
-              <div className="absolute -bottom-6 -right-6 transform rotate-[-12deg] group-hover:rotate-[-6deg] group-hover:-translate-y-2 transition-all duration-500 ease-out">
+              <div className="hidden md:block absolute -bottom-6 -right-6 transform rotate-[-12deg] group-hover:rotate-[-6deg] group-hover:-translate-y-2 transition-all duration-500 ease-out">
                 <div className="absolute top-6 -left-20 bg-white/90 backdrop-blur-sm px-3 py-1.5 rounded-lg shadow-sm border border-white/60 z-0 transition-all duration-500 group-hover:-translate-x-2">
                   <div className="flex items-center gap-2">
                     <span className="opacity-50 font-body text-[8px] font-bold text-[#3e1f5e]">

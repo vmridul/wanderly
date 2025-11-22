@@ -175,12 +175,12 @@ const Create = () => {
 
       {/* Header */}
       <div className="flex flex-col items-center">
-        <h1 className="text-4xl text-center text-[#3F2978] font-brice tracking-wide mt-15">
+        <h1 className="text-3xl md:text-4xl text-center text-[#3F2978] font-brice tracking-wide mt-15">
           Enter your trip details
         </h1>
 
         {/* Destination input */}
-        <div className="bg-white rounded-md flex items-center pl-4.5 mt-15 h-12 w-110">
+        <div className="bg-white rounded-md flex items-center pl-4.5 mt-15 h-12 w-80 md:w-110">
           <FontAwesomeIcon
             icon={faLocationDot}
             className="w-5 h-5 text-[#3F2978]"
@@ -198,8 +198,8 @@ const Create = () => {
         </div>
 
         {/* Budget & Travellers */}
-        <div className="flex h-12 gap-2 mt-3 w-110">
-          <div className="bg-white rounded-md flex items-center w-70 p-5 pr-0 gap-5">
+        <div className="flex md:flex-row flex-col h-12 gap-3 md:gap-2 mt-3 w-80 md:w-110">
+          <div className="bg-white rounded-md flex items-center h-12 w-80 md:w-70 p-5 pr-0 gap-5">
             <FontAwesomeIcon
               icon={faMoneyBill}
               className="w-5 h-3 text-[#3F2978]"
@@ -215,7 +215,7 @@ const Create = () => {
             </div>
           </div>
 
-          <div className="bg-white rounded-md flex items-center w-38 p-5 gap-4">
+          <div className="bg-white rounded-md flex items-center h-12 w-80 md:w-38 p-5 gap-4">
             <FontAwesomeIcon icon={faUser} className="w-5 h-5 text-[#3F2978]" />
             <input
               type="number"
@@ -229,7 +229,7 @@ const Create = () => {
         {/* Notes */}
         <div
           onChange={(e) => setNotes(e.target.value)}
-          className="flex bg-white w-110 mt-3 rounded-md h-12 p-5 items-center justify-between"
+          className="flex bg-white w-80 md:w-110 mt-3 rounded-md h-12 p-5 items-center justify-between"
         >
           <FontAwesomeIcon icon={faPen} className="w-5 h-5 text-[#3F2978]" />
           <input
@@ -242,7 +242,7 @@ const Create = () => {
         {/* Generate button */}
         <button
           onClick={handleGenerate}
-          className="bg-[#3F2978] rounded-md w-110 h-12 mt-3 text-white font-medium text-sm hover:shadow-xl cursor-pointer ease-in-out"
+          className="bg-[#3F2978] rounded-md w-80 md:w-110 h-12 mt-3 text-white font-medium text-sm hover:shadow-xl cursor-pointer ease-in-out"
         >
           Generate Trip Plan
         </button>

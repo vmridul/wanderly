@@ -121,13 +121,13 @@ const Trips = () => {
       </div>
       {/* Header */}
       <div className="flex flex-col items-center mt-10">
-        <h1 className="text-4xl text-[#3F2978] font-brice mt-25 tracking-wide">
+        <h1 className="text-3xl md:text-4xl text-[#3F2978] font-brice mt-25 tracking-wide">
           My Trips
         </h1>
 
         {/* Search & Sort */}
         <div className="flex flex-col md:flex-row gap-3 justify-between items-center w-180 mt-10 text-sm">
-          <div className="bg-white p-5 pr-0 gap-43 md:gap-5 flex items-center rounded-md h-10 md:w-62 w-100">
+          <div className="bg-white p-5 pr-0 gap-23 md:gap-5 flex items-center rounded-md h-10 md:w-62 w-80">
             <span className="text-[#3F2978]">Sort by:</span>
             <div>
               <button
@@ -155,7 +155,7 @@ const Trips = () => {
             </div>
           </div>
 
-          <div className="bg-white w-100 p-5 gap-2 flex items-center rounded-md h-10 focus-within:outline focus-within:outline-[#b5a4dd]">
+          <div className="bg-white w-80 p-5 gap-2 flex items-center rounded-md h-10 focus-within:outline focus-within:outline-[#b5a4dd]">
             <input
               type="text"
               placeholder="Search"
@@ -186,7 +186,7 @@ const Trips = () => {
             <Link
               to={`/trip/${trip.tripId}`}
               key={trip.tripId}
-              className={`text-[#3F2978] md:py-0 py-2 grid grid-cols-2 grid-rows-3 md:grid md:grid-cols-5 md:grid-rows-1 items-center text-sm bg-white md:max-w-[720px] rounded-3xl h-34 md:h-18 px-4 border border-[#CFD0D5] shadow-[0px_5px_0px_#EFEFEF,0px_6px_0px_#CFD0D5] hover:shadow-[0px_5px_0px_#EFEFEF,0px_6px_0px_#CFD0D5,0px_7px_6px_#d3d3d3] transition-all ease-in-out ${
+              className={`text-[#3F2978] md:py-0 py-2 grid grid-cols-2 grid-rows-3 md:grid md:grid-cols-5 md:grid-rows-1 items-center text-sm bg-white md:max-w-[720px] rounded-3xl h-38 md:h-18 max-w-82 px-4 border border-[#CFD0D5] shadow-[0px_5px_0px_#EFEFEF,0px_6px_0px_#CFD0D5] hover:shadow-[0px_5px_0px_#EFEFEF,0px_6px_0px_#CFD0D5,0px_7px_6px_#d3d3d3] transition-all ease-in-out ${
                 index === 0 ? "mt-3" : "mt-4"
               }`}
             >
@@ -200,7 +200,7 @@ const Trips = () => {
               </div>
 
               {/* Dates */}
-              <div className="flex ml-7.5 items-center gap-1 min-w-40">
+              <div className="flex md:ml-7.5 items-center gap-1 min-w-40">
                 <FontAwesomeIcon
                   icon={faCalendar}
                   className="w-4 h-4 text-[#3F2978]"
@@ -228,7 +228,7 @@ const Trips = () => {
               </div>
 
               {/* Travellers */}
-              <div className="flex items-center gap-1 ml-7">
+              <div className="flex items-center gap-1 md:ml-7">
                 <FontAwesomeIcon
                   icon={faUser}
                   className="w-4 h-4 text-[#3F2978]"
@@ -269,7 +269,7 @@ const Trips = () => {
       {/* Create Button */}
       <button
         onClick={handleClick}
-        className="flex text-[#3F2978] hover:bg-[#d7d5f6] cursor-pointer font-medium justify-center items-center gap-2 mt-6 bg-[#E2E0F8] border border-[#B9B7E4] rounded-2xl w-100 md:w-180 h-11"
+        className="flex text-[#3F2978] hover:bg-[#d7d5f6] cursor-pointer font-medium justify-center items-center gap-2 mt-6 bg-[#E2E0F8] border border-[#B9B7E4] rounded-2xl w-80 md:w-180 h-11"
       >
         Create a new trip{" "}
         <FontAwesomeIcon
