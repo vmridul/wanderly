@@ -1,0 +1,14 @@
+{
+  "rewrites": [
+    
+    {
+      "source": "/api/:path*",
+      "destination": "https://wanderly-99s4.onrender.com/:path*"
+    },
+
+    {
+      "source": "/:path*",
+      "destination": "/index.html"
+    }
+  ]
+}
