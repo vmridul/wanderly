@@ -129,7 +129,7 @@ const Create = () => {
 
   return (
     <div
-      className="min-h-screen bg-cover bg-center p-5 relative"
+      className="overflow-x-hidden min-h-screen bg-cover bg-center p-5 relative"
       style={{ backgroundImage: `url(${createBg})` }}
     >
       {loadingGenerate && (

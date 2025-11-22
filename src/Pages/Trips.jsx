@@ -120,7 +120,7 @@ const Trips = () => {
         )}
       </div>
       {/* Header */}
-      <div className="flex flex-col items-center mt-10">
+      <div className="flex flex-col items-center mt-6">
         <h1 className="text-3xl md:text-4xl text-[#3F2978] font-brice mt-25 tracking-wide">
           My Trips
         </h1>
@@ -269,7 +269,7 @@ const Trips = () => {
       {/* Create Button */}
       <button
         onClick={handleClick}
-        className="flex text-[#3F2978] hover:bg-[#d7d5f6] cursor-pointer font-medium justify-center items-center gap-2 mt-6 bg-[#E2E0F8] border border-[#B9B7E4] rounded-2xl w-80 md:w-180 h-11"
+        className="flex mb-16 text-[#3F2978] hover:bg-[#d7d5f6] cursor-pointer font-medium justify-center items-center gap-2 mt-6 bg-[#E2E0F8] border border-[#B9B7E4] rounded-2xl w-80 md:w-180 h-11"
       >
         Create a new trip{" "}
         <FontAwesomeIcon
