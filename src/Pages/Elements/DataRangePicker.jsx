@@ -54,6 +54,11 @@ const DateRangePicker = ({ setFrom, setTo }) => {
             startDate={startDate}
             endDate={endDate}
             minDate={startDate || new Date()}
+            maxDate={
+              startDate
+                ? new Date(startDate.getTime() + 9 * 24 * 60 * 60 * 1000)
+                : null
+            }
             placeholderText="To"
             className="pl-3 outline-none placeholder-[#9185B0] tracking-wide text-[#3F2978] text-sm font-manrope"
           />
