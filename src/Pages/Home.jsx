@@ -261,7 +261,7 @@ const Home = () => {
               <p className="text-lg text-slate-600 mb-8 leading-relaxed max-w-xl mx-auto font-manrope">
                 Build detailed day-wise itineraries, track real ticket prices,
                 view everything on a map, and copy your trip in one click.
-                Wandely makes planning simple and effortless.
+                Wanderly makes planning simple and effortless.
               </p>
 
               <div className="flex flex-col mt-10 font-manrope sm:flex-row gap-4 justify-center">
@@ -752,7 +752,7 @@ const Home = () => {
           </div>
 
           <p className="text-purple-300 text-sm">
-            Created & Designed by Mridul
+            Designed & Developed by Mridul
           </p>
         </div>
       </footer>
