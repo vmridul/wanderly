@@ -38,7 +38,7 @@ const ItineraryDisplay = ({ trip }) => {
   const handleDelete = async () => {
     try {
       const confirmDelete = window.confirm(
-        "Are you sure you want to delete this trip?"
+        "Are you sure you want to delete this trip?",
       );
       if (!confirmDelete) return;
       await fetch(`${import.meta.env.VITE_API_URL}/api/trips/${trip.tripId}`, {
@@ -62,7 +62,7 @@ const ItineraryDisplay = ({ trip }) => {
       ...place,
       label: `${dayIndex + 1}.${placeIndex + 1}`,
       day: dayIndex,
-    }))
+    })),
   );
 
   const filteredMarkers =
@@ -70,7 +70,6 @@ const ItineraryDisplay = ({ trip }) => {
       ? allMarkers.filter((m) => m.day === selectedDay)
       : allMarkers;
 
-  // ========= FIX 1: For map resize issues =========
   const FixMapSize = () => {
     const map = useMap();
     useEffect(() => {
@@ -81,7 +80,6 @@ const ItineraryDisplay = ({ trip }) => {
     return null;
   };
 
-  // ========= FIX 2: Updated ChangeView =========
   const ChangeView = ({ markers }) => {
     const map = useMap();
     useEffect(() => {
@@ -114,7 +112,7 @@ const ItineraryDisplay = ({ trip }) => {
 
       const query = `${cleanName}`;
       const url = `https://api.unsplash.com/search/photos?query=${encodeURIComponent(
-        query
+        query,
       )}&per_page=1&orientation=landscape&order_by=popular&client_id=${accessKey}`;
 
       try {

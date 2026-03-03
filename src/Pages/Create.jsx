@@ -56,7 +56,7 @@ const Create = () => {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ trip }),
-        }
+        },
       );
 
       if (!res.ok) {
@@ -93,13 +93,16 @@ const Create = () => {
       const user = result.user;
       console.log("User:", user.email);
 
-      await fetch(`${VITE_API_URl}/api/users`, {
+      await fetch(`${import.meta.env.VITE_API_URL}/api/users`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name: user.displayName, email: user.email }),
+        body: JSON.stringify({
+          name: user.displayName,
+          email: user.email,
+        }),
       });
 
-      console.log("User saved to backend ✅");
+      console.log("User saved to backend");
     } catch (error) {
       console.error("Error during sign-in:", error);
     }

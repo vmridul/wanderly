@@ -16,12 +16,12 @@ export default function LocationInput({ setDestination, setLat, setLong }) {
     }
     try {
       const url = `https://api.geoapify.com/v1/geocode/autocomplete?text=${encodeURIComponent(
-        text
+        text,
       )}&apiKey=${GEOAPIFY_KEY}&lang=en&limit=6&type=city`;
       const res = await fetch(url);
       const data = await res.json();
       setSuggestions(data.features || []);
-      setSelectedIndex(-1); // reset highlight
+      setSelectedIndex(-1);
     } catch (err) {
       console.error("Geoapify fetch error", err);
     }
@@ -30,7 +30,7 @@ export default function LocationInput({ setDestination, setLat, setLong }) {
   const handleChange = (e) => {
     const val = e.target.value;
     setQuery(val);
-    setIsValidLocation(false); // user is typing → not valid until selected
+    setIsValidLocation(false);
     if (timeoutRef.current) clearTimeout(timeoutRef.current);
     timeoutRef.current = setTimeout(() => {
       if (val.length > 1) fetchSuggestions(val);

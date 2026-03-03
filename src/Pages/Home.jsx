@@ -248,10 +248,6 @@ const Home = () => {
 
             {/* CENTER: Hero Text */}
             <div className="w-full lg:w-1/2  text-center z-10 order-1 lg:order-2 ">
-              <div className="inline-block bg-white/60 backdrop-blur-sm px-4 py-1.5 rounded-full text-[#3F2978] font-bold text-sm mb-6 border border-purple-100 shadow-sm">
-                <i className="fa-solid fa-wand-magic-sparkles mr-2"></i>{" "}
-                AI-Powered Trip Planning
-              </div>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-brice font-heading font-black text-[#3F2978] leading-tight mb-6 tracking-tight">
                 Plan your next <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3F2978] to-[#8a4fff]">
@@ -285,9 +281,6 @@ const Home = () => {
             <div className="hidden md:flex lg:flex w-full lg:w-1/4 flex-col items-center gap-8 animate-float-delayed opacity-90 order-3 lg:order-3 scale-90 lg:scale-100">
               {/* Floating Plane Ticket Card */}
               <div className="bg-white/40 backdrop-blur-md p-6 rounded-[2rem] shadow-xl border border-white/60 rotate-6 hover:rotate-0 transition-all duration-500 w-48 h-48 flex flex-col items-center justify-center relative group">
-                <div className="absolute -top-3 -right-3 bg-[#FFD700] text-[#3F2978] text-xs font-bold px-3 py-1 rounded-full shadow-sm rotate-12">
-                  Go!
-                </div>
                 <div className="bg-blue-100 p-4 rounded-full mb-3 group-hover:scale-110 transition-transform">
                   <i className="fa-solid fa-plane-departure text-5xl text-[#3F2978]"></i>
                 </div>
