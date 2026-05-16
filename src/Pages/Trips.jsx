@@ -89,10 +89,10 @@ const Trips = () => {
   });
 
   return (
-    <div className="overflow-x-hidden relative min-h-screen flex flex-col items-center font-manrope bg-[#fafafa]">
+    <div className="overflow-x-hidden relative isolate min-h-screen flex flex-col items-center font-manrope bg-[#fafafa]">
       {/* Background with Fade Effect */}
       <div
-        className="absolute inset-x-0 top-0 z-0 blur-sm saturate-60 hue-rotate-30 pointer-events-none"
+        className="absolute inset-x-0 top-0 z-[-1] blur-sm saturate-60 hue-rotate-30 pointer-events-none"
         style={{
           backgroundImage: `url(${tripBg})`,
           backgroundSize: "cover",

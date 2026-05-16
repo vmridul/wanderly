@@ -172,7 +172,7 @@ const Home = () => {
       {/* Hero Section */}
       <header
         style={{ backgroundImage: `url(${bg})` }}
-        className="relative h-screen pt-32 pb-20 lg:pt-40 lg:pb-32 overflow-hidden bg-stripes min-h-[80vh] flex items-center"
+        className="relative h-screen pt-32 pb-20 lg:pt-40 lg:pb-32 overflow-hidden bg-stripes min-h-[80vh] flex items-center isolate"
       >
         <div className="container mx-auto px-6 relative z-10">
           <div className="flex flex-col lg:flex-row items-center justify-center gap-8">
@@ -209,7 +209,7 @@ const Home = () => {
         </div>
       </header>
 
-      <section className="py-30 bg-aesthetic-dots relative flex flex-col items-center">
+      <section className="py-30 bg-aesthetic-dots relative flex flex-col items-center isolate">
         <div className="container mx-auto mt-5 px-6 flex flex-col items-center relative z-10">
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-brice font-heading font-black text-[#3F2978] mb-4">
@@ -343,9 +343,9 @@ const Home = () => {
       </section>
 
       {/* BENTO */}
-      <section className="py-24 bg-white relative overflow-hidden">
-        <div className="absolute top-0 left-0 w-96 h-96 bg-purple-200/40 blur-3xl -translate-x-1/2 -translate-y-1/2 rounded-full pointer-events-none"></div>
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-200/40 blur-3xl translate-x-1/2 translate-y-1/2 rounded-full pointer-events-none"></div>
+      <section className="py-24 bg-white relative overflow-hidden isolate">
+        <div className="absolute top-0 left-0 w-96 h-96 bg-purple-200/40 blur-3xl -translate-x-1/2 -translate-y-1/2 rounded-full pointer-events-none z-[-1]"></div>
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-200/40 blur-3xl translate-x-1/2 translate-y-1/2 rounded-full pointer-events-none z-[-1]"></div>
 
         <div className="container mx-auto px-6 relative z-10">
           <div className="text-center mb-16">
