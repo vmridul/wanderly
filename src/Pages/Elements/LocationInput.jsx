@@ -1,7 +1,4 @@
 import React, { useState, useRef } from "react";
-
-const GEOAPIFY_KEY = "8494ddd743e645afabdc73e5ade81c06";
-
 export default function LocationInput({ setDestination, setLat, setLong }) {
   const [query, setQuery] = useState("");
   const [suggestions, setSuggestions] = useState([]);
@@ -17,7 +14,7 @@ export default function LocationInput({ setDestination, setLat, setLong }) {
     try {
       const url = `https://api.geoapify.com/v1/geocode/autocomplete?text=${encodeURIComponent(
         text,
-      )}&apiKey=${GEOAPIFY_KEY}&lang=en&limit=6&type=city`;
+      )}&apiKey=${import.meta.env.VITE_GEOAPIFY_KEY}&lang=en&limit=6&type=city`;
       const res = await fetch(url);
       const data = await res.json();
       setSuggestions(data.features || []);

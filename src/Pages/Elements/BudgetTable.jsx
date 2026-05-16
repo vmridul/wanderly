@@ -12,7 +12,7 @@ const BudgetTable = ({ details }) => {
       totals.misc += day.budget_details.misc;
       return totals;
     },
-    { total: 0, food: 0, travel: 0, tickets: 0, misc: 0 }
+    { total: 0, food: 0, travel: 0, tickets: 0, misc: 0 },
   );
 
   return (
@@ -26,7 +26,7 @@ const BudgetTable = ({ details }) => {
           Budget Breakdown
         </span>
       </div>
-      <table className="md:min-w-[200px] md:ml-0  md:w-187 border border-gray-100 rounded-2xl text-center">
+      <table className="md:min-w-[200px] md:ml-0  md:w-187 border border-separate border-spacing-0 overflow-hidden border-gray-100 rounded-md text-center">
         <thead className="bg-gray-50 rounded-lg">
           <tr>
             <th className="py-2 md:px-4 ">Day</th>

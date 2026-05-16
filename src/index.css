@@ -1,30 +1,62 @@
 @import "tailwindcss";
 
 @keyframes progress-loading {
-  0% { left: -100%; }
-  100% { left: 100%; }
+    0% {
+        left: -100%;
+    }
+    100% {
+        left: 100%;
+    }
 }
 
 .animate-progress {
-  animation: progress-loading 2s infinite linear;
+    animation: progress-loading 2s infinite linear;
 }
 
 @font-face {
-  font-family: BriceReg;
-  src: url("/src/assets/fonts/brice-regular.ttf") format("truetype");
-  font-weight: 400;
+    font-family: BriceReg;
+    src: url("/src/assets/fonts/brice-regular.ttf") format("truetype");
+    font-weight: 400;
 }
 
 @font-face {
-  font-family: Brice;
-  src: url("/src/assets/fonts/Brice-BoldSemiExpanded.ttf") format("truetype");
-  font-weight: 700;
+    font-family: Brice;
+    src: url("/src/assets/fonts/Brice-BoldSemiExpanded.ttf") format("truetype");
+    font-weight: 700;
 }
 
-@theme{
-  --font-bricereg: BriceReg,"sans-serif";
+@theme {
+    --font-bricereg: BriceReg, "sans-serif";
 }
 
-@theme{
-  --font-brice: Brice,"sans-serif";
+@theme {
+    --font-brice: Brice, "sans-serif";
+}
+
+.bg-aesthetic-dots {
+    position: relative;
+    background-color: #fafafa;
+}
+
+.bg-aesthetic-dots::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(#3f2978 0.5px, transparent 0.5px);
+    background-size: 24px 24px;
+    -webkit-mask-image: linear-gradient(
+        to right,
+        black,
+        transparent 25%,
+        transparent 75%,
+        black
+    );
+    mask-image: linear-gradient(
+        to right,
+        black,
+        transparent 25%,
+        transparent 75%,
+        black
+    );
+    pointer-events: none;
 }

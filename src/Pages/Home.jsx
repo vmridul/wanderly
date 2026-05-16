@@ -9,8 +9,11 @@ import { auth } from "../firebase";
 import { useNavigate } from "react-router-dom";
 import booking from "../assets/booking.png";
 import oyo from "../assets/oyo.png";
+import bg from "../assets/bg.png";
+import ProfileMenu from "./Elements/ProfileMenu";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHouse } from "@fortawesome/free-solid-svg-icons";
+import { faCopy } from "@fortawesome/free-solid-svg-icons";
 
 const Home = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -31,7 +34,7 @@ const Home = () => {
           body: JSON.stringify({ name: user.displayName, email: user.email }),
         });
 
-        console.log("User saved to backend ✅");
+        console.log("User saved to backend");
         navigate("/trips");
       } catch (error) {
         console.error("Error during sign-in:", error);
@@ -63,7 +66,7 @@ const Home = () => {
         body: JSON.stringify({ name: user.displayName, email: user.email }),
       });
 
-      console.log("User saved to backend ✅");
+      console.log("User saved to backend");
       navigate("/trips");
     } catch (error) {
       console.error("Error during sign-in:", error);
@@ -80,45 +83,6 @@ const Home = () => {
 
   return (
     <div className="min-h-screen font-sans text-slate-800 overflow-x-hidden bg-[#F3F4F6]">
-      <style>
-        {`        
-        
-          .bg-aesthetic-dots {
-            background-color: #F8FAFC;
-            background-image: 
-              radial-gradient(at 50% 0%, rgba(224, 195, 252, 0.4) 0px, transparent 50%),
-              radial-gradient(at 50% 100%, rgba(199, 210, 254, 0.4) 0px, transparent 50%),
-              url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='1' cy='1' r='1' fill='%2394a3b8' fill-opacity='0.2'/%3E%3C/svg%3E");
-          }
-
-          .bg-stripes {
-            background: linear-gradient(90deg, #E0E7FF 0%, #EDE9FE 20%, #F5F3FF 40%, #E0E7FF 60%, #DBEAFE 80%, #EDE9FE 100%);
-            background-size: 200% 100%;
-            animation: gradientMove 15s ease infinite;
-          }
-          
-          @keyframes gradientMove {
-            0% { background-position: 0% 50% }
-            50% { background-position: 100% 50% }
-            100% { background-position: 0% 50% }
-          }
-
-          /* Floating Animation for Illustrations */
-          @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-15px); }
-            100% { transform: translateY(0px); }
-          }
-          .animate-float {
-            animation: float 6s ease-in-out infinite;
-          }
-          .animate-float-delayed {
-            animation: float 7s ease-in-out infinite;
-            animation-delay: 1s;
-          }
-        `}
-      </style>
-
       {/* Navbar */}
       <nav
         className={`fixed w-full z-50 transition-all duration-300 ${
@@ -130,9 +94,11 @@ const Home = () => {
         <div className="container mx-auto px-6 flex justify-between items-center">
           <div className="flex items-center gap-2">
             <div className="p-2 mb-1 rounded-lg w-12 h-12 flex items-center justify-center">
-              <img src={wanderly} alt="" />
+              <img src={scrolled ? wanderly : wanderlyWhite} alt="" />
             </div>
-            <span className="text-2xl font-bricereg font-heading font-black text-[#3F2978] tracking-tight">
+            <span
+              className={`text-2xl font-bricereg font-heading font-black ${scrolled ? "text-[#3F2978]" : "text-white"} tracking-tight`}
+            >
               Wanderly
             </span>
           </div>
@@ -147,17 +113,7 @@ const Home = () => {
                 <img src={GoogleLogo} alt="google-logo" className="w-8 h-8" />
               </button>
             ) : (
-              <div className="flex items-center gap-8">
-                <div className="bg-[#3F2978] cursor-pointer pl-7 flex items-center gap-2 text-white px-6 py-2.5 rounded-lg font-medium transition shadow-lg shadow-purple-200">
-                  Welcome, {user?.displayName}
-                </div>
-                <div
-                  onClick={handleLogout}
-                  className="font-medium hover:text-[#140e25] transition cursor-pointer"
-                >
-                  Logout
-                </div>
-              </div>
+              <ProfileMenu user={user} handleLogout={handleLogout} />
             )}
           </div>
 
@@ -186,11 +142,27 @@ const Home = () => {
                 <img src={GoogleLogo} alt="google-logo" className="w-8 h-8" />
               </button>
             ) : (
-              <div
-                onClick={handleLogout}
-                className="font-medium hover:text-[#140e25] transition cursor-pointer"
-              >
-                Logout
+              <div className="flex flex-col gap-4 border-t pt-4">
+                <div className="flex items-center gap-3">
+                  <img
+                    src={user?.photoURL}
+                    alt="profile"
+                    className="w-10 h-10 rounded-full border border-[#3F2978]"
+                  />
+                  <div>
+                    <p className="text-sm font-semibold text-gray-800">
+                      {user?.displayName}
+                    </p>
+                    <p className="text-xs text-gray-500">{user?.email}</p>
+                  </div>
+                </div>
+                <button
+                  onClick={handleLogout}
+                  className="text-left font-medium text-red-600 hover:text-red-700 transition cursor-pointer flex items-center gap-2"
+                >
+                  <i className="fa-solid fa-right-from-bracket"></i>
+                  Logout
+                </button>
               </div>
             )}
           </div>
@@ -198,111 +170,47 @@ const Home = () => {
       </nav>
 
       {/* Hero Section */}
-      <header className="relative h-screen pt-32 pb-20 lg:pt-40 lg:pb-32 overflow-hidden bg-stripes min-h-[80vh] flex items-center">
-        <div className="absolute top-0 right-0 z-0 pointer-events-none opacity-10 translate-x-10 -translate-y-10">
-          <svg
-            width="400"
-            height="250"
-            viewBox="0 0 400 250"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M320 200H100C66.8629 200 40 173.137 40 140C40 112.676 58.3226 89.679 83.2318 82.3926C88.6475 42.1289 123.278 10 165 10C199.784 10 229.699 32.112 242.448 63.5088C249.266 60.615 256.718 59 264.5 59C295.15 59 320 83.8497 320 114.5C320 116.794 319.815 119.043 319.458 121.239C353.385 128.798 380 158.195 380 195C380 196.667 380 198.333 380 200H320Z"
-              fill="#3F2978"
-            />
-          </svg>
-        </div>
-        <div className="absolute bottom-0 left-0 z-0 pointer-events-none opacity-10 -translate-x-10 translate-y-10">
-          <svg
-            width="400"
-            height="250"
-            viewBox="0 0 400 250"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M80 200H300C333.137 200 360 173.137 360 140C360 112.676 341.677 89.679 316.768 82.3926C311.352 42.1289 276.722 10 235 10C200.216 10 170.301 32.112 157.552 63.5088C150.734 60.615 143.282 59 135.5 59C104.85 59 80 83.8497 80 114.5C80 116.794 80.185 119.043 80.542 121.239C46.6151 128.798 20 158.195 20 195C20 196.667 20 198.333 20 200H80Z"
-              fill="#3F2978"
-            />
-          </svg>
-        </div>
+      <header
+        style={{ backgroundImage: `url(${bg})` }}
+        className="relative h-screen pt-32 pb-20 lg:pt-40 lg:pb-32 overflow-hidden bg-stripes min-h-[80vh] flex items-center"
+      >
         <div className="container mx-auto px-6 relative z-10">
-          <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
-            {/* LEFT ILLUSTRATION: Destination & Discovery */}
-            <div className="hidden md:flex lg:flex w-full lg:w-1/4 flex-col items-center gap-8 animate-float opacity-90 order-2 lg:order-1 scale-90 lg:scale-100">
-              {/* Floating Map Card */}
-              <div className="bg-white/40 backdrop-blur-md p-6 rounded-4xl shadow-xl border border-white/60 -rotate-6 hover:rotate-0 transition-all duration-500 w-48 h-48 flex flex-col items-center justify-center group">
-                <div className="bg-purple-100 p-4 rounded-full mb-3 group-hover:scale-110 transition-transform">
-                  <i className="fa-solid fa-map-location-dot text-5xl text-[#3F2978]"></i>
-                </div>
-                <div className="h-2 w-16 bg-purple-200 rounded-full"></div>
-                <div className="h-2 w-10 bg-purple-200 rounded-full mt-2"></div>
-              </div>
-
-              {/* Floating Compass Bubble */}
-              <div className="bg-indigo-100/60 backdrop-blur-sm p-5 rounded-2xl shadow-lg border border-white/50 ml-20 rotate-12 flex items-center justify-center text-[#8a4fff]">
-                <i className="fa-regular fa-compass text-4xl"></i>
-              </div>
-            </div>
-
+          <div className="flex flex-col lg:flex-row items-center justify-center gap-8">
             {/* CENTER: Hero Text */}
             <div className="w-full lg:w-1/2  text-center z-10 order-1 lg:order-2 ">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-brice font-heading font-black text-[#3F2978] leading-tight mb-6 tracking-tight">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-brice font-heading font-black text-white leading-tight mb-0 tracking-tight">
                 Plan your next <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3F2978] to-[#8a4fff]">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-100 to-gray-200">
                   adventure.
                 </span>
               </h1>
-              <p className="text-lg text-slate-600 mb-8 leading-relaxed max-w-xl mx-auto font-manrope">
+              <p className="text-lg text-slate-300 mb-8 leading-relaxed max-w-xl mx-auto font-manrope">
                 Build detailed day-wise itineraries, track real ticket prices,
-                view everything on a map, and copy your trip in one click.
-                Wanderly makes planning simple and effortless.
+                view everything on a map.
               </p>
 
               <div className="flex flex-col mt-10 font-manrope sm:flex-row gap-4 justify-center">
                 <button
                   onClick={handlePlanning}
-                  className="bg-[#3F2978]  cursor-pointer text-white px-8 py-4 rounded-xl font-medium text-lg hover:bg-[#2a1b52] transition shadow-xl shadow-purple-200 flex items-center justify-center gap-2 group"
+                  className="bg-white hover:bg-gray-100 cursor-pointer text-black px-8 py-4 rounded-xl font-medium text-lg transition shadow-xl flex items-center justify-center gap-2 group"
                 >
                   Start Planning Free
                   <i className="fa-solid fa-chevron-right text-sm group-hover:translate-x-1 transition-transform"></i>
                 </button>
                 <button
                   onClick={() => navigate("/demo-itinerary")}
-                  className="bg-white  cursor-pointer text-[#3F2978] px-8 py-4 rounded-xl font-medium text-lg hover:bg-purple-50 transition shadow-md flex items-center justify-center gap-2"
+                  className="bg-white/50 backdrop-blur-md hover:bg-white/60 cursor-pointer text-black/70 px-8 py-4 rounded-xl font-medium text-lg transition shadow-lg flex items-center justify-center gap-2"
                 >
                   View Demo
                 </button>
-              </div>
-            </div>
-
-            {/* RIGHT ILLUSTRATION: Journey & Memories */}
-            <div className="hidden md:flex lg:flex w-full lg:w-1/4 flex-col items-center gap-8 animate-float-delayed opacity-90 order-3 lg:order-3 scale-90 lg:scale-100">
-              {/* Floating Plane Ticket Card */}
-              <div className="bg-white/40 backdrop-blur-md p-6 rounded-[2rem] shadow-xl border border-white/60 rotate-6 hover:rotate-0 transition-all duration-500 w-48 h-48 flex flex-col items-center justify-center relative group">
-                <div className="bg-blue-100 p-4 rounded-full mb-3 group-hover:scale-110 transition-transform">
-                  <i className="fa-solid fa-plane-departure text-5xl text-[#3F2978]"></i>
-                </div>
-                <div className="h-2 w-20 bg-blue-200 rounded-full"></div>
-                <div className="flex gap-1 mt-2">
-                  <div className="h-2 w-2 bg-blue-200 rounded-full"></div>
-                  <div className="h-2 w-2 bg-blue-200 rounded-full"></div>
-                  <div className="h-2 w-2 bg-blue-200 rounded-full"></div>
-                </div>
-              </div>
-
-              {/* Floating Camera Bubble */}
-              <div className="bg-pink-100/60 backdrop-blur-sm p-5 rounded-2xl shadow-lg border border-white/50 mr-20 -rotate-12 flex items-center justify-center text-[#d946ef]">
-                <i className="fa-solid fa-camera-retro text-4xl"></i>
               </div>
             </div>
           </div>
         </div>
       </header>
 
-      <section className="py-20 bg-aesthetic-dots relative flex flex-col items-center">
-        <div className="container mx-auto mt-5 px-6 flex flex-col items-center">
+      <section className="py-30 bg-aesthetic-dots relative flex flex-col items-center">
+        <div className="container mx-auto mt-5 px-6 flex flex-col items-center relative z-10">
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-brice font-heading font-black text-[#3F2978] mb-4">
               Your Trips, Organized
@@ -384,11 +292,11 @@ const Home = () => {
 
                 {/* Actions */}
                 <div className="flex items-center gap-3 justify-end col-span-1">
-                  <button className="bg-[#f8e2e2] rounded-2xl py-2 px-4 hover:bg-[#f6d6d6] ease-in-out cursor-pointer transition-colors">
+                  <button className="bg-[#f8e2e2] rounded-2xl py-3 px-4 hover:bg-[#f6d6d6] ease-in-out cursor-pointer transition-colors">
                     <i className="fa-solid fa-trash text-[#704040]"></i>
                   </button>
-                  <button className="bg-[#F8F8E2] rounded-2xl py-2 px-5 font-medium text-[#60571e] hover:bg-[#f5f5cc] ease-in-out cursor-pointer transition-colors">
-                    Copy
+                  <button className="bg-[#F8F8E2] rounded-2xl py-3 px-4 font-medium text-[#60571e] hover:bg-[#f5f5cc] ease-in-out cursor-pointer transition-colors">
+                    <i className="fa-solid fa-copy text-[#60571e]"></i>
                   </button>
                 </div>
               </div>
@@ -421,11 +329,11 @@ const Home = () => {
 
                 {/* Actions */}
                 <div className="flex items-center gap-3 justify-end col-span-1">
-                  <button className="bg-[#f8e2e2] rounded-2xl py-2 px-4 hover:bg-[#f6d6d6] ease-in-out cursor-pointer transition-colors">
+                  <button className="bg-[#f8e2e2] rounded-2xl py-3 px-4 hover:bg-[#f6d6d6] ease-in-out cursor-pointer transition-colors">
                     <i className="fa-solid fa-trash text-[#704040]"></i>
                   </button>
-                  <button className="bg-[#F8F8E2] rounded-2xl py-2 px-5 font-medium text-[#60571e] hover:bg-[#f5f5cc] ease-in-out cursor-pointer transition-colors">
-                    Copy
+                  <button className="bg-[#F8F8E2] rounded-2xl py-3 px-4 font-medium text-[#60571e] hover:bg-[#f5f5cc] ease-in-out cursor-pointer transition-colors">
+                    <i className="fa-solid fa-copy text-[#60571e]"></i>
                   </button>
                 </div>
               </div>
@@ -467,7 +375,7 @@ const Home = () => {
                   your budget smartly.
                 </p>
 
-                <div className="mt-auto bg-white/60 backdrop-blur-md rounded-xl p-8 hidden md:flex flex-col gap-4 shadow-sm border border-white/50 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                <div className="mt-auto bg-white/60 backdrop-blur-md rounded-xl p-8 hidden md:flex flex-col gap-4 shadow-sm border border-white/50 translate-y-4 transition-transform duration-500">
                   <div className="bg-slate-200/60 rounded-lg px-4 py-2 flex items-center gap-2 w-fit">
                     <i className="fa-solid fa-ticket text-[#3F2978]"></i>
                     <span className="text-[#3F2978] font-bold text-sm font-body">
@@ -492,7 +400,7 @@ const Home = () => {
                     ].map((item, idx) => (
                       <div
                         key={idx}
-                        className="flex items-center gap-2 text-slate-700 hover:scale-105 transition-transform cursor-default"
+                        className="flex items-center gap-2 text-slate-700 cursor-default"
                       >
                         <span className="font-medium text-slate-800">
                           {item.name}
@@ -606,7 +514,7 @@ const Home = () => {
                 ].map((marker, i) => (
                   <div
                     key={i}
-                    className="absolute bg-[#8B5CF6] text-white text-[8px] font-bold px-1.5 py-0.5 rounded-md shadow-md hover:scale-110 transition-transform cursor-pointer border border-white/50 z-20"
+                    className="absolute bg-[#8B5CF6] text-white text-[8px] px-2 py-1.5 rounded-lg transition-transform cursor-pointer z-20"
                     style={{ top: marker.top, left: marker.left }}
                   >
                     {marker.id}

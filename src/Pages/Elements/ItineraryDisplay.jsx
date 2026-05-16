@@ -150,14 +150,14 @@ const ItineraryDisplay = ({ trip }) => {
       >
         <div
           onClick={() => navigate("/trips")}
-          className=" flex items-center text-sm z-50 bg-white text-[#3F2978] px-3 py-2 rounded-lg shadow hover:bg-gray-50 transition cursor-pointer"
+          className=" flex items-center text-sm z-50 bg-white text-[#3F2978] px-3 py-2 rounded-lg shadow-lg hover:bg-gray-50 transition cursor-pointer"
         >
           <img src={arrow} alt="" className="ml-1 w-5 h-5" />
           <span className="text-sm mr-3">Back</span>
         </div>
 
         <div className="flex items-center justify-between gap-2">
-          <div className="hidden md:flex items-center gap-1 px-5 py-2 bg-[#f5f5ff] rounded-lg">
+          <div className="hidden md:flex items-center gap-1 px-5 py-2 bg-[#f5f5ff] shadow-lg rounded-lg">
             <FontAwesomeIcon
               icon={faCalendar}
               className="text-[#4e4070] text-sm"
@@ -174,7 +174,7 @@ const ItineraryDisplay = ({ trip }) => {
               })}
             </span>
           </div>
-          <div className="hidden md:flex items-center gap-1 px-5 py-2 bg-[#f5f5ff] rounded-lg">
+          <div className="hidden md:flex items-center gap-1 px-5 py-2 bg-[#f5f5ff] shadow-lg rounded-lg">
             <FontAwesomeIcon
               icon={faMoneyBill}
               className="text-[#4e4070] text-sm"
@@ -183,7 +183,7 @@ const ItineraryDisplay = ({ trip }) => {
               ₹{trip.budget}
             </span>
           </div>
-          <div className="hidden md:flex items-center gap-1 px-5 py-2 bg-[#f5f5ff] rounded-lg">
+          <div className="hidden md:flex items-center gap-1 px-5 py-2 bg-[#f5f5ff] shadow-lg rounded-lg">
             <FontAwesomeIcon icon={faUser} className="text-[#4e4070] text-sm" />
             <span className="text-[#4e4070] text-sm font-medium">
               {trip.travellers}
@@ -191,7 +191,7 @@ const ItineraryDisplay = ({ trip }) => {
           </div>
           <div
             onClick={handleDelete}
-            className="flex md:ml-0 -ml-103 items-center gap-1 px-7 py-3 bg-[#f8e2e2] rounded-lg cursor-pointer hover:bg-[#f6d6d6]"
+            className="flex md:ml-0 -ml-103 items-center gap-1 px-7 py-3 bg-[#f8e2e2] shadow-lg rounded-lg cursor-pointer hover:bg-[#f6d6d6]"
           >
             <FontAwesomeIcon
               icon={faTrash}
@@ -200,7 +200,7 @@ const ItineraryDisplay = ({ trip }) => {
           </div>
           <div
             onClick={() => handleCopy(trip.tripId)}
-            className="flex md:ml-0 -ml-103 items-center gap-1 px-7 py-3 bg-[#F8F8E2] hover:bg-[#f5f5cc] rounded-lg cursor-pointer"
+            className="flex md:ml-0 -ml-103 items-center shadow-lg gap-1 px-7 py-3 bg-[#F8F8E2] hover:bg-[#f5f5cc] rounded-lg cursor-pointer"
           >
             <FontAwesomeIcon
               icon={faCopy}
