@@ -107,7 +107,7 @@ const Home = () => {
             {!user && !loading ? (
               <button
                 onClick={handleSignIn}
-                className="bg-[#3F2978] cursor-pointer pl-7 flex items-center gap-2 text-white px-6 py-2.5 rounded-lg font-medium hover:bg-[#2a1b52] transition shadow-lg shadow-purple-200"
+                className="bg-white hover:bg-gray-100 cursor-pointer pl-7 flex items-center gap-2 text-black px-5 py-2.5 rounded-lg transition"
               >
                 Sign In With Google
                 <img src={GoogleLogo} alt="google-logo" className="w-8 h-8" />
