@@ -13,7 +13,6 @@ import bg from "../assets/bg.png";
 import ProfileMenu from "./Elements/ProfileMenu";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHouse } from "@fortawesome/free-solid-svg-icons";
-import { faCopy } from "@fortawesome/free-solid-svg-icons";
 
 const Home = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
